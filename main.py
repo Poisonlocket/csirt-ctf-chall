@@ -43,12 +43,13 @@ def admin(request: Request):
     username = session
 
     try:
-        eval(username)
+        output = eval(username)
     except:
         info = "didnt get paid enough to handle this securely this code really makes me evaluate my choices"
+        output = ""
 
     return {
         "message": "Welcome to the admin panel",
         "username": username,
-        "admin_info": info
+        "admin_info": info + " " + output
     }
